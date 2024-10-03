@@ -1,0 +1,15 @@
+{
+	"EEGChannelCount": 12,
+	"EEGReference": "M1 (left mastoid)",
+	"InstitutionAddress": "Santa Teresa de Jesús, 30-32, local, 50006 Zaragoza, Spain",
+	"InstitutionName": "Bitbrain Technologies",
+	"InstitutionalDepartmentName": "Neuroscience Department",
+	"Manufacturer": "Micromed",
+	"ManufacturersModelName": "SD plus",
+	"PowerLineFrequency": 50,
+	"RecordingDuration": 25309,
+	"SamplingFrequency": 256,
+	"SoftwareFilters": "n\/a",
+	"TaskDescription": "One night of sleep.",
+	"TaskName": "Sleep"
+}
