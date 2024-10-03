@@ -34,18 +34,19 @@ Note that not all the PSG sensors were used with all the participants. The full 
 
 Meaning of all the channel groups:
 
-- PSG_EEG: EEG signals recorded with the PSG system. Channels available are F3, F4, C3, C4, O1, O2 (PSG_F3;PSG_F4;PSG_C3;PSG_C4;PSG_O1;PSG_O2).
-- PSG_EOG: EOG signals recorded with the PSG system. Some of the participants have just one EOG derivation (PSG_EOG), whereas others have 2 lateral derivations, referenced to the mastoid (PSG_EOGR;PSG_EOGL).
-- PSG_EMG: EMG signals recorded with the PSG system. One chin EMG derivation is available (PSG_EMG).
-- PSG_BELTS: Breathing activity recorded the PSG system using breathing belts. Abdominal and thoracic breathing belts were used (PSG_ABD;PSG_THOR).
-- PSG_THER: Respiratory airflow recorded with the PSG system using a thermistor (PSG_THER).
-- PSG_CAN: Respiratory airflow recorded with the PSG system using a nasal cannula (PSG_CAN).
-- PSG_PPG: Photopletismographic activity recorded with the PSG system. Channels available are pulse (PSG_PULSE), heart beat (PSG_BEAT) and oxygen saturation (PSG_SPO2).
+	- PSG_EEG: EEG signals recorded with the PSG system. Channels available are F3, F4, C3, C4, O1, O2 (PSG_F3;PSG_F4;PSG_C3;PSG_C4;PSG_O1;PSG_O2).
+	- PSG_EOG: EOG signals recorded with the PSG system. Some of the participants have just one EOG derivation (PSG_EOG), whereas others have 2 lateral derivations, referenced to the mastoid (PSG_EOGR;PSG_EOGL).
+	- PSG_EMG: EMG signals recorded with the PSG system. One chin EMG derivation is available (PSG_EMG).
+	- PSG_BELTS: Breathing activity recorded the PSG system using breathing belts. Abdominal and thoracic breathing belts were used (PSG_ABD;PSG_THOR).
+	- PSG_THER: Respiratory airflow recorded with the PSG system using a thermistor (PSG_THER).
+	- PSG_CAN: Respiratory airflow recorded with the PSG system using a nasal cannula (PSG_CAN).
+	- PSG_PPG: Photopletismographic activity recorded with the PSG system. Channels available are pulse (PSG_PULSE), heart beat (PSG_BEAT) and oxygen saturation (PSG_SPO2).
 
-- HB_EEG: EEG signals recorded with the wearable EEG headband. The headband measuring locaations are equivalent to AF7 and AF8 (HB_1;HB_2).
-- HB_IMU: Movement activity recorded  from an accelerometer and gyroscope. Both sensors record in 3 dimensions (x, y, z) each,  (HB_IMU_1;HB_IMU_2;HB_IMU_3;HB_IMU_4;HB_IMU_5;HB_IMU_6)
-- HB_PULSE: Pulse activity recorded with the wearable EEG headband using a PPG sensor (HB_PULSE).
+	- HB_EEG: EEG signals recorded with the wearable EEG headband. The headband measuring locaations are equivalent to AF7 and AF8 (HB_1;HB_2).
+	- HB_IMU: Movement activity recorded  from an accelerometer and gyroscope. Both sensors record in 3 dimensions (x, y, z) each,  (HB_IMU_1;HB_IMU_2;HB_IMU_3;HB_IMU_4;HB_IMU_5;HB_IMU_6)
+	- HB_PULSE: Pulse activity recorded with the wearable EEG headband using a PPG sensor (HB_PULSE).
 
+The sleep stages of each night are coded as events at the corresponding recording folder. The sleep stages obtained as the consensus of the three experts, as well as the labels obtained by the AI using the EEG activity recorded with the PSG can be found in the 'sub-xx_task-Sleep_acq-psg_events.tsv' files. The sleep stages obtained by the AI using the EEG activity recorded with the wearable headband can be found in the 'sub-xx_task-Sleep_acq-headband_events.tsv' files.
 
 ## References
 
