@@ -1,4 +1,4 @@
-onset	duration	begsample	endsample	offset	majority	ai_psg
+onset	duration	begsample	endsample	offset	stage_hum	stage_ai
 0	30	1	7680	0	3	3
 30	30	7681	15360	0	3	3
 60	30	15361	23040	0	3	3

@@ -1,52 +1,74 @@
 # README
 
-The Bitbrain Open Access Sleep (BOAS) dataset.
+The **Bitbrain Open Access Sleep (BOAS)** dataset.
 
 ## Overview
 
-This project aimes at bridging the gap between gold-standard clinical sleep monitoring and emerging wearable EEG technologies. 
-The dataset comprises 128 nights in which healthy participants were simultaneously monitored with two technologies: a Brain Quick Plus Evolution PSG system, by Micromed, and a wearable EEG headband, by Bitbrain. 
-The Micromed PSG system provides a comprehensive and clinically validated set of sleep parameters, while the Bitbrain wearable EEG headband offers a user-friendly, self-administered alternative, limited to forehead EEG electrodes.
+This project aimed at bridging the gap between gold-standard clinical sleep monitoring and emerging wearable EEG technologies. The dataset contains data from **128 nights** in which participants were simultaneously monitored with two technologies: a **Brain Quick Plus Evolution PSG system by Micromed** and a **wearable EEG headband by Bitbrain**. The Micromed PSG system records a comprehensive and clinically validated set of physiological sleep parameters, while the Bitbrain wearable EEG headband offers a user-friendly, self-administered alternative, limited to forehead EEG electrodes, movement sensors, and photo-plethysmography. **Data from both systems were acquired simultaneously**, allowing for direct comparison and validation of the wearable EEG device against the established PSG standard. This dual-recording approach provides a rich resource for evaluating the performance and potential of wearable EEG technology in sleep studies.
 
-A relevant aspect of the dataset is the simultaneous acquisition of data from both systems, allowing for direct comparison and validation of the wearable EEG device against the established PSG standard. 
-This dual-recording approach provides a rich resource for evaluating the performance and potential of wearable EEG technology in sleep studies.
+**Human sleep scoring:** To ensure robust and reliable sleep staging, we followed a rigorous labeling process. **Three expert sleep scorers independently annotated the PSG recordings** following criteria developed by the American Academy of Sleep Medicine (AASM) (Berry et al., 2015). From the resulting three scorings, a **consensus label** was derived: each epoch of sleep data received the label scored by at least two of the scorers. In cases where all three scorers had given different labels, a fourth scorer made the final decision. This consensus labeling approach addresses the inherent variability in human-derived sleep scoring, with an estimated inter-scorer agreement of approximately 85% (Danker-Hopfe et al., 2009; Rosenberg and Van Hout, 2013).
 
-To ensure robust and reliable sleep staging, we employed a rigorous labeling process. Three expert sleep scorers independently annotated the PSG recordings following the criteria developed by the American Academy of Sleep Medicine (AASM) (Berry et al., 2015), and a consensus label was derived from these annotations by a fourth expert. This consensus labeling approach addresses the inherent variability in human sleep staging, which has an estimated inter-scorer agreement of approximately 85% (Danker-Hopfe et al., 2009; Rosenberg and Van Hout, 2013). The consensus labels were then applied to the corresponding wearable EEG recordings, leveraging the simultaneous data acquisition.
-Moreover, we utilized a deep learning model to analyze the dataset (Esparza-Iaizzo et al., 2024). By implementing a cross-validation procedure, we trained and validated the model separately on the PSG and wearable EEG datasets. The model achieved an 87.08% match between the human-consensus labels and the network-provided labels for the PSG data, and an 86.64% match for the wearable EEG data.
+**Automatic scoring:** We used the human expert consensus labels to train a deep learning model (Esparza-Iaizzo et al., 2024). By implementing a cross-validation procedure, we trained and validated the model separately on the PSG and wearable EEG datasets. The model achieved an 87.08% match between human-consensus and network-provided labels for the PSG data, and an 86.64% match for the wearable EEG data.
 
-Our dataset, therefore, includes:
+Our dataset includes:
 
-	1. Raw and labeled PSG recordings from 128 nights.
+1. **PSG recordings** from 128 nights (files ending with "*psg_eeg.edf*"),
+2. **Wearable EEG recordings** from the same nights (files ending with "*headband_eeg.edf*"),
+3. **Human-consensus sleep stage labels**, obtained from the PSG recordings ("*stage_hum*" in the PSG data's event files),
+4. **AI-generated sleep stage labels**, separately obtained from PSG recordings and from wearable EEG recordings ("*stage_ai*" in both the PSG and headband data's event files).
+5. **Further meta data** for each recording (i.e., the participants' age, sex, and BMI, provided in the file "*participants.tsv*")
+
+## Participants
+
+Participants were members of the general population, provided written informed consent, and received economic compensation of 50€ per night.
+
+In order to represent the general population, we recruited a broad spectrum of participants along the dimensions of age, sex, and body mass index. We did not recruit patients with particular health conditions but only excluded severe conditions that could have affected the feasibility or safety of the study. In detail, inclusion and exclusion criteria were as follows.
+
+**Inclusion criteria**
+- Age > 18 years,
+- Sufficient knowledge of Spanish to understand the explanatory text, the consent form and study-related instructions.
+
+**Exclusion criteria**
+- Current severe medical interventions or medication,
+- History of severe neurological or psychiatric disorders,
+- Severe health problems in the last 12 months (especially neurological or cardiac disorders),
+- Current pregnancy or nursing,
+- Use of psychotropic medication, benzodiazepines, gamma-hydroxybutyric acid, and similar drugs before or during the study.
 	
-	2. Raw and labeled wearable EEG recordings from the same nights.
-	
-	3. Human-consensus sleep stage labels for both PSG and wearable EEG data.
-	
-	4. AI-generated sleep stage labels for both datasets.
-
 
 ## Format
 
-The dataset is formatted according to the Brain Imaging Data Structure. 
+The dataset is formatted according to the Brain Imaging Data Structure (BIDS). Please note that while the recordings are named from sub-1 up to sub-128, some come from the same participants. 108 unique individuals participated in the recordings, data of which can be matched using the pid (= unique participant ID) property in the file "*participants.tsv*"
 
-The folder of each participant contains the data recorded with the PSG (sub-xx_task-Sleep_acq-psg_eeg.edf) and with the wearable EEG headband (sub-xx_task-Sleep_acq-headband_eeg.edf). 
-Note that not all the PSG sensors were used with all the participants. The full list of available sources of activity for each recording can be obtained on the 'channels.tsv' file. 
+The folder of each recording contains the data recorded with the PSG ("*sub-xx_task-Sleep_acq-psg_eeg.edf*") and with the wearable EEG headband ("*sub-xx_task-Sleep_acq-headband_eeg.edf*"). 
 
-Meaning of all the channel groups:
 
-	- PSG_EEG: EEG signals recorded with the PSG system. Channels available are F3, F4, C3, C4, O1, O2 (PSG_F3;PSG_F4;PSG_C3;PSG_C4;PSG_O1;PSG_O2).
-	- PSG_EOG: EOG signals recorded with the PSG system. Some of the participants have just one EOG derivation (PSG_EOG), whereas others have 2 lateral derivations, referenced to the mastoid (PSG_EOGR;PSG_EOGL).
-	- PSG_EMG: EMG signals recorded with the PSG system. One chin EMG derivation is available (PSG_EMG).
-	- PSG_BELTS: Breathing activity recorded the PSG system using breathing belts. Abdominal and thoracic breathing belts were used (PSG_ABD;PSG_THOR).
-	- PSG_THER: Respiratory airflow recorded with the PSG system using a thermistor (PSG_THER).
-	- PSG_CAN: Respiratory airflow recorded with the PSG system using a nasal cannula (PSG_CAN).
-	- PSG_PPG: Photopletismographic activity recorded with the PSG system. Channels available are pulse (PSG_PULSE), heart beat (PSG_BEAT) and oxygen saturation (PSG_SPO2).
+**Channel groups**
 
-	- HB_EEG: EEG signals recorded with the wearable EEG headband. The headband measuring locaations are equivalent to AF7 and AF8 (HB_1;HB_2).
-	- HB_IMU: Movement activity recorded  from an accelerometer and gyroscope. Both sensors record in 3 dimensions (x, y, z) each,  (HB_IMU_1;HB_IMU_2;HB_IMU_3;HB_IMU_4;HB_IMU_5;HB_IMU_6)
-	- HB_PULSE: Pulse activity recorded with the wearable EEG headband using a PPG sensor (HB_PULSE).
+Not all recordings contain data from all available sensors. The full list of available sensors for each recording can be obtained on the "*channels.tsv*" file. Channels in this file are coded in groups:
+- **PSG_EEG**: Electroencephalography recorded with the PSG system. Channels available are F3, F4, C3, C4, O1, O2 (PSG_F3, PSG_F4, PSG_C3, PSG_C4, PSG_O1, PSG_O2).
+- **PSG_EOG**: Electrooculography signals recorded with the PSG system. The location of the EOG electrodes was lateral of the eyes; one slightly lower than the participant's left eye and one slightly higher than the participant's right eye (according to AASM guidelines). For recordings containing only one EOG channel (PSG_EOG), the electrodes were recorded as a bipolar derivation. If two EOG channels are present (PSG_EOGR, PSG_EOGL), both electrodes were referenced against the left mastoid.
+- **PSG_EMG**: Electromyography signals recorded with the PSG system. Data contain a single EMG channel (PSG_EMG), which is the result of a bipolar derivation of two chin electrodes.
+- **PSG_BELTS**: Breathing activity recorded by the PSG system using abdominal and thoracic breathing belts (PSG_ABD, PSG_THOR).
+- **PSG_THER**: Respiratory airflow recorded with the PSG system using a thermistor (PSG_THER).
+- **PSG_CAN**: Respiratory airflow recorded with the PSG system using a nasal cannula (PSG_CAN).
+- **PSG_PPG**: Photopletismographic (PPG) activity recorded with the PSG system. Channels available are pulse (PSG_PULSE), heart beat (PSG_BEAT) and oxygen saturation (PSG_SPO2).
+- **HB_EEG**: Electroencephalography recorded with the wearable EEG headband. Headband channels are approximately located at AF7 and AF8 (HB_1, HB_2).
+- **HB_IMU**: Movement activity recorded by an Inertial Measurement Unit (IMU) in the headband. Signals are derived from an accelerometer (HB_IMU_1, HB_IMU_2, HB_IMU_3) and gyroscope (HB_IMU_4, HB_IMU_5, HB_IMU_6), both recording signals for all three spatial dimensions.
+- **HB_PULSE**: Pulse activity recorded with the wearable EEG headband using a PPG sensor (HB_PULSE).
 
-The sleep stages of each night are coded as events at the corresponding recording folder. The sleep stages obtained as the consensus of the three experts, as well as the labels obtained by the AI using the EEG activity recorded with the PSG can be found in the 'sub-xx_task-Sleep_acq-psg_events.tsv' files. The sleep stages obtained by the AI using the EEG activity recorded with the wearable headband can be found in the 'sub-xx_task-Sleep_acq-headband_events.tsv' files.
+
+**Sleep staging labels**
+
+The sleep stage labels for each recording are coded as events in corresponding event files (stage_hum and stage_ai; see above). Stages are coded as follows:
+- 0: Wake,
+- 1: NonREM sleep stage 1 (N1),
+- 2: NonREM sleep stage 2 (N2),
+- 3: NonREM sleep stage 3 (N3),
+- 4: REM sleep,
+- 8: PSG disconnections (e.g., due to bathroom breaks; human-scored only)
+- -2: Artifacts and missing data (AI-scored only)
+
 
 ## References
 
@@ -65,4 +87,5 @@ If you have any questions or comments, please contact:
 
 Eduardo López-Larraz: eduardo.lopez@bitbrain.com
 Jens G. Klinzing: jens.klinzing@bitbrain.com
+
 
