@@ -1,7 +1,0 @@
-1.1.0 2025-02-13
-  - 1.1.0 2025-02-13
-  - - Provided more meta-information about the data in the readme and sidecar files
-  - - Improved the naming of properties to make them more self-explanatory
-  - - Provides the sleep scoring in *_events.tsv files
-1.0.0 2024-10-03
-  - Repository creation.
