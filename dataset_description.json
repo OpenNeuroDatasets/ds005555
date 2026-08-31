@@ -12,7 +12,7 @@
     ],
     "BIDSVersion": "1.8.0",
     "HEDVersion": "8.4.0",
-    "DatasetDOI": "doi:10.18112/openneuro.ds005555.v1.1.2",
+    "DatasetDOI": "doi:10.18112/openneuro.ds005555.v1.1.3",
     "DatasetType": "raw",
     "Funding": [
         "This work was funded by Programa Misiones de I+D en Inteligencia Artificial (AI4HEALTHYAGING: MIA.2021.M02.0007)",
