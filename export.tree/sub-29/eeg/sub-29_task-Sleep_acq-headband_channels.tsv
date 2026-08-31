@@ -1,0 +1,3 @@
+name	type	units	sampling_frequency
+HB_1	EEG	uV	256
+HB_2	EEG	uV	256

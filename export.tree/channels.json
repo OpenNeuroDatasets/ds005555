@@ -1,0 +1,116 @@
+{
+    "PSG_EEG": {
+        "Description": "EEG channels of the PSG device (F3, F4, C3, C4, O1, O2)",
+        "HED": {
+            "0": "(Label/PSG_EEG, ID/0)",
+			"1": "(Label/PSG_EEG, ID/1)"
+        },
+        "Levels": {
+            "0": "Does not contain these channels",
+            "1": "Contains these channels"
+        }
+    },
+    "PSG_EOG": {
+        "Description": "EOG channels of the PSG device (either 2 channels referenced against M1 or 1 bipolar channel)",
+        "HED": {
+            "0": "(Label/PSG_EOG, ID/0)",
+			"1": "(Label/PSG_EOG, ID/1)"
+        },
+        "Levels": {
+            "0": "Does not contain these channels",
+            "1": "Contains these channels"        
+		}
+    },
+    "PSG_EMG": {
+        "Description": "EMG channel of the PSG device (bipolar derivation)",
+        "HED": {
+            "0": "(Label/PSG_EMG, ID/0)",
+			"1": "(Label/PSG_EMG, ID/1)"
+        },
+        "Levels": {
+            "0": "Does not contain this channel",
+            "1": "Contains this channel"
+		}
+    },
+    "PSG_BELTS": {
+        "Description": "Thoracic and abdominal breathing belt channels of the PSG device",
+        "HED": {
+            "0": "(Label/PSG_BELTS, ID/0)",
+            "1": "(Label/PSG_BELTS, ID/1)"
+        },
+        "Levels": {
+            "0": "Does not contain these channels",
+            "1": "Contains these channels"
+        }
+    },
+    "PSG_THER": {
+        "Description": "Thermistor (nasal airflow sensor) channel of the PSG device",
+        "HED": {
+            "0": "(Label/PSG_THER, ID/0)",
+            "1": "(Label/PSG_THER, ID/1)"
+        },
+        "Levels": {
+            "0": "Does not contain this channel",
+            "1": "Contains this channel"
+        }
+    },
+    "PSG_CAN": {
+        "Description": "Cannula (nasal airflow sensor) channel of the PSG device",
+        "HED": {
+            "0": "(Label/PSG_CAN, ID/0)",
+            "1": "(Label/PSG_CAN, ID/1)"
+        },
+        "Levels": {
+            "0": "Does not contain this channel",
+            "1": "Contains this channel"
+        }
+    },
+    "PSG_PPG": {
+        "Description": "Photoplethysmography (PPG) channels of the PSG device (pulse, beats, SpO2)",
+        "HED": {
+            "0": "(Label/PSG_PPG, ID/0)",
+            "1": "(Label/PSG_PPG, ID/1)"
+        },
+        "Levels": {
+            "0": "Does not contain these channels",
+            "1": "Contains these channels"
+        }
+    },
+    "HB_EEG": {
+        "Description": "EEG channels of the headband device (two frontal channels)",
+        "HED": {
+            "0": "(Label/HB_EEG, ID/0)",
+			"1": "(Label/HB_EEG, ID/1)"
+        },
+        "Levels": {
+            "0": "Does not contain these channels",
+            "1": "Contains these channels"
+        }
+    },
+    "HB_IMU": {
+        "Description": "Inertial measurement unit (IMU) channels of the headband device (3 axes accelerometer, 3 axes gyroscope)",
+        "HED": {
+            "0": "(Label/HB_IMU, ID/0)",
+            "1": "(Label/HB_IMU, ID/1)"
+        },
+        "Levels": {
+            "0": "Does not contain these channels",
+            "1": "Contains these channels"
+        }
+    },
+    "HB_PULSE": {
+        "Description": "Pulse channel of the headband device",
+        "HED": {
+            "0": "(Label/HB_PULSE, ID/0)",
+            "1": "(Label/HB_PULSE, ID/1)"
+        },
+        "Levels": {
+            "0": "Does not contain this channel",
+            "1": "Contains this channel"
+        }
+    },
+    "REC": {
+        "Description": "Recording ID",
+        "HED": "(Label/REC, ID/#)"
+    }
+}
