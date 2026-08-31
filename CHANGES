@@ -1,3 +1,5 @@
+1.1.2 2026-08-31
+  - Minor corrections of the README page.
 1.1.1 2025-05-22
   - Updated AI-based labels for both the PSG and the headband following a minor improvement to the neural network (note that fewer than 0.3% of the labels were affected compared to v1.1.0).
   - Added ethics approval statement.
